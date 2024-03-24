@@ -17,15 +17,5 @@ pipeline {
         sh 'node --version'
       }
     }
-    stage {
-      agent {
-        docker {image 'postgres:latest'}
-      }
-      {
-        steps {
-          sh  'pg_ctl start -D /docker- entrypoint-initdb.d/ && sleep 5; pg_ctl stop'
-        }
-      }
-    }
   }
 }
